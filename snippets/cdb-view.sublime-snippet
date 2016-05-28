@@ -44,7 +44,7 @@ module.exports = cdb.core.View.extend({
 
   _initViews: function () {
     this._view = createViewFromOptions(someOptions);
-    this.$el.append(this._view.render().\$el);
+    this.\$el.append(this._view.render().\$el);
     this.addView(this._view);
   },
 
