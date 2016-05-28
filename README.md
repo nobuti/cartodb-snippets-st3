@@ -4,7 +4,7 @@ These are [Carto](https://github.com/CartoDB/cartodb/) snippets for use with [Su
 
 ## Installation
 
-Install using [Package Control](https://sublime.wbond.net/), it's called `Flight JS Snippets`.
+Install using [Package Control](https://sublime.wbond.net/), you will need to add the repo: `Package Control: Add Repository`. Then paste the repo url and then proceed with a regular installation. Search for `Install package` and then `CartoDB JS Snippets`.
 
 ## Usage
 
