@@ -1,0 +1,57 @@
+<snippet>
+  <description>CartoDB – View</description>
+  <tabTrigger>cdb</tabTrigger>
+  <scope>source.js</scope>
+  <content><![CDATA[
+var cdb = require('cartodb.js');
+var _ = require('underscore');
+
+module.exports = cdb.core.View.extend({
+
+  events: {
+    'click .js-foo': '_fooHandler'
+  },
+
+  initialize: function (opts) {
+    if (!opts.mandatory) throw new Error('mandatory is required');
+
+    this.mandatory = opts.mandatory;
+
+    // For internal state
+    this.model = new cdb.core.Model({
+      state: true
+    });
+
+    this._initBinds();
+  },
+
+  render: function () {
+    this.clearSubViews();
+    this.$el.empty();
+    this._initViews();
+    return this;
+  },
+
+  clean: function () {
+    // Other ops here
+    cdb.core.View.prototype.clean.apply(this, arguments);
+  },
+
+  _initBinds: function () {
+    this.listenTo(this.otherModel, 'change:source', this);
+    this.add_related_model(this.otherModel);
+  },
+
+  _initViews: function () {
+    this._view = createViewFromOptions(someOptions);
+    this.$el.append(this._view.render().$el);
+    this.addView(this._view);
+  },
+
+  _fooHandler: function () {
+
+  }
+});
+
+]]></content>
+</snippet>

@@ -1,0 +1,13 @@
+{
+  "name": "cartodb-js-snippets",
+  "description": "CartoDB Snippets for Sublime Text",
+  "version": "0.0.1",
+  "authors": [
+    "Buti <buti@nobuti.com>"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-bump": "latest",
+    "matchdep": "latest"
+  }
+}

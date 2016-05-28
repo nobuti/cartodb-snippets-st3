@@ -1,0 +1,33 @@
+<snippet>
+	<description>CartoDB – Jasmine View</description>
+	<tabTrigger>cdb</tabTrigger>
+	<scope>source.js</scope>
+	<content><![CDATA[
+
+describe('editor/view', function () {
+  var view;
+
+  beforeEach(function () {
+    this.configModel = new ConfigModel({
+      base_url: '/u/pepe'
+    });
+
+    view = new View({
+      configModel: this.configModel,
+      editorModel: new EditorModel(),
+    });
+
+    view.render();
+  });
+
+  it('should render properly', function () {
+    expect(view._view).toBeDefined();
+  });
+
+  it('should not have any leaks', function () {
+    expect(view).toHaveNoLeaks();
+  });
+});
+
+]]></content>
+</snippet>
