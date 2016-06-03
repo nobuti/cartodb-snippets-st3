@@ -1,7 +1,7 @@
 {
   "name": "cartodb-js-snippets",
   "description": "CartoDB Snippets for Sublime Text",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "authors": [
     "Buti <buti@nobuti.com>"
   ],
