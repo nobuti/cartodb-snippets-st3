@@ -14,6 +14,8 @@ Use `tab` to move between the placeholders.
 
 * Core components (tab trigger: `cdb`)
   - View
+  - Model
+  - Collection
 
 * Test API
   - Jasmine View
