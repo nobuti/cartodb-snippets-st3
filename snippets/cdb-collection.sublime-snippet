@@ -1,0 +1,27 @@
+<snippet>
+  <content><![CDATA[
+  var Backbone = require('backbone');
+  var _ = require('underscore');
+
+  module.exports =  Backbone.Collection.extend({
+
+    model: '',
+
+    initialize: function (options) {
+      this._initBinds();
+    },
+
+    _initBinds: function () {
+      this.on('change:selected', this._onSelectedChanged, this);
+    },
+
+    _onSelectedChanged: function(model, isSelected) {
+
+    }
+  });
+  ]]>
+  </content>
+  <description>CartoDB – Collection</description>
+  <tabTrigger>cdb</tabTrigger>
+  <scope>source.js</scope>
+</snippet>

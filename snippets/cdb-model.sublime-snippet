@@ -1,0 +1,22 @@
+<snippet>
+  <content><![CDATA[
+  var Backbone = require('backbone');
+
+  module.exports = Backbone.Model.extend({
+
+    defaults: {},
+
+    initialize: function (options) {
+      ${0}
+    },
+
+    getValue: function() {
+      return this.get('val');
+    }
+  });
+  ]]>
+  </content>
+  <description>CartoDB – Model</description>
+  <tabTrigger>cdb</tabTrigger>
+  <scope>source.js</scope>
+</snippet>
