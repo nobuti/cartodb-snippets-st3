@@ -3,10 +3,10 @@
   <tabTrigger>cdb</tabTrigger>
   <scope>source.js</scope>
   <content><![CDATA[
-var cdb = require('cartodb.js');
+var CoreView = require('backbone/core-view');
 var _ = require('underscore');
 
-module.exports = cdb.core.View.extend({
+module.exports = CoreView.extend({
 
   events: {
     'click .js-foo': '_fooHandler'
