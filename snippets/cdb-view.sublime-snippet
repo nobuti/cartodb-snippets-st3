@@ -6,6 +6,14 @@
 var CoreView = require('backbone/core-view');
 var _ = require('underscore');
 
+var REQUIRED_OPTS = [
+  'template',
+  'runAction',
+  'renderOpts',
+  'loadingTitle',
+  'modalModel'
+];
+
 module.exports = CoreView.extend({
 
   events: {
@@ -13,9 +21,10 @@ module.exports = CoreView.extend({
   },
 
   initialize: function (opts) {
-    if (!opts.mandatory) throw new Error('mandatory is required');
-
-    this.mandatory = opts.mandatory;
+    _.each(REQUIRED_OPTS, function (item) {
+      if (!opts[item]) throw new Error(item + ' is required');
+      this['_' + item] = opts[item];
+    }, this);
 
     // For internal state
     this.model = new cdb.core.Model({
