@@ -3,8 +3,9 @@
   <tabTrigger>cdb</tabTrigger>
   <scope>source.js</scope>
   <content><![CDATA[
-var CoreView = require('backbone/core-view');
 var _ = require('underscore');
+var Backbone = require('backbone');
+var CoreView = require('backbone/core-view');
 
 var REQUIRED_OPTS = [
   'template',
@@ -13,6 +14,11 @@ var REQUIRED_OPTS = [
   'loadingTitle',
   'modalModel'
 ];
+
+var privateVariable = 'foo';
+var privateMethod = function () {
+  ...
+}
 
 module.exports = CoreView.extend({
 
@@ -27,7 +33,7 @@ module.exports = CoreView.extend({
     }, this);
 
     // For internal state
-    this.model = new cdb.core.Model({
+    this.model = new Backbone.Model({
       state: true
     });
 
@@ -58,7 +64,7 @@ module.exports = CoreView.extend({
 
   clean: function () {
     // Other ops here
-    cdb.core.View.prototype.clean.apply(this, arguments);
+    CoreView.prototype.clean.apply(this, arguments);
   }
 });
 

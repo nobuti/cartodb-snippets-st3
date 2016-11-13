@@ -1,16 +1,35 @@
 <snippet>
-	<description>CartoDB – Jasmine View</description>
+	<description>CartoDB – Jasmine</description>
 	<tabTrigger>cdb</tabTrigger>
 	<scope>source.js</scope>
 	<content><![CDATA[
+var _ = require('underscore');
+var Backbone = require('backbone');
 
 describe('editor/view', function () {
   var view;
+
+  var TestResponses = {
+    save: {
+      success: {
+        status: 200,
+        'content-type': 'application/json',
+        responseText: '{"message": "foo"}'
+      }
+    },
+    destroy: {
+      success: {
+        status: 204
+      }
+    }
+  };
 
   beforeEach(function () {
     this.configModel = new ConfigModel({
       base_url: '/u/pepe'
     });
+
+    this.collection = new Backbone.Collection();
 
     view = new View({
       configModel: this.configModel,
@@ -22,6 +41,16 @@ describe('editor/view', function () {
 
   it('should render properly', function () {
     expect(view._view).toBeDefined();
+  });
+
+  it('should create backend resource properly', function () {
+    jasmine.Ajax.requests.mostRecent().respondWith(TestResponses.save);
+    expect(this.collection.length).toBe(1);
+  });
+
+  it('should destroy backend resource properly', function () {
+    jasmine.Ajax.requests.mostRecent().respondWith(TestResponses.destroy);
+    expect(this.collection.length).toBe(0);
   });
 
   it('should not have any leaks', function () {

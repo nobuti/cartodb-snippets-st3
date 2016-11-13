@@ -1,0 +1,19 @@
+<snippet>
+  <description>CartoDB – Initialize</description>
+  <tabTrigger>cdb</tabTrigger>
+  <scope>source.js</scope>
+  <content><![CDATA[
+var REQUIRED_OPTS = [
+  'template',
+  'runAction',
+  'renderOpts',
+  'loadingTitle',
+  'modalModel'
+];
+
+_.each(REQUIRED_OPTS, function (item) {
+  if (opts[item] === undefined) throw new Error(item + ' is required');
+  this['_' + item] = opts[item];
+}, this);
+]]></content>
+</snippet>
